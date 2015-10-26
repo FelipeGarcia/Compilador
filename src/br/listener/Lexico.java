@@ -107,7 +107,7 @@ public class Lexico implements ActionListener {
                     if (palavraCorrente == "$") {
                         if (as.Entrada(i, txtSemEspaco, linha)) {
                             cp.setConsole(i, "$", linha, "Final de Arquivo");
-                            JOptionPane.showMessageDialog(null,"Program sem erros.","sucesso!",JOptionPane.INFORMATION_MESSAGE);
+                            JOptionPane.showMessageDialog(null,"Programa sem erros.","sucesso!",JOptionPane.INFORMATION_MESSAGE);
                         } else {
                             cp.setConsole(0, "Erro Sintático", linha, "");
                         }
@@ -340,7 +340,9 @@ public class Lexico implements ActionListener {
                 posicaoAtual++;
                 //caso encontre quebra de linha, passa para próxima linha
                 if (charDoTexto[posicaoAtual] == '¬') {
-                    linha++;
+                    cp.setConsole(0, "Um Erro Foi encontrado", linha, "Literal não terminado");
+                       terminado = true;
+                        posicaoAtual = txtSemEspaco.length();
                 }
                 //Caso acabe o codigo, da erro
             } else {
@@ -446,6 +448,7 @@ public class Lexico implements ActionListener {
 
     private void L() {
         //Verifica se o próximo caracter necessário para iniciar um comentário de linha existe, mando para a próxima função
+       posicaoAtual++;
         if (charDoTexto[posicaoAtual] == '%') {
             //Passa para próxima posição
             posicaoAtual++;
