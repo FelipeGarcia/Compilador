@@ -188,7 +188,7 @@ public class Regras {
         regras[45].push(28);
         regras[46].push(24);
         regras[47].push(20);
-        regras[47].push(48);
+        regras[47].push(44);
         regras[48].push(17);
         regras[49].push(16);
         regras[49].push(66);
